@@ -42,6 +42,8 @@ module VagrantPlugins
       # @return [String]
       attr_accessor :network
 
+      attr_accessor :network_id
+
       # List of strings representing the security groups to apply.
       # e.g. ['ssh', 'http']
       #
@@ -80,6 +82,7 @@ module VagrantPlugins
         @username = UNSET_VALUE
         @keypair_name = UNSET_VALUE
         @network  = UNSET_VALUE
+        @network_id  = UNSET_VALUE
         @security_groups = UNSET_VALUE
         @ssh_username = UNSET_VALUE
         @tenant = UNSET_VALUE
@@ -95,6 +98,7 @@ module VagrantPlugins
         @metadata = nil if @metadata == UNSET_VALUE
         @username = nil if @username == UNSET_VALUE
         @network = nil if @network == UNSET_VALUE
+        @network_id = 'public' if @network == UNSET_VALUE
 
         # Keypair defaults to nil
         @keypair_name = nil if @keypair_name == UNSET_VALUE

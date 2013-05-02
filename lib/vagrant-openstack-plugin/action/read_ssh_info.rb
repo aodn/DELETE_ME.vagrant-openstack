@@ -34,8 +34,9 @@ module VagrantPlugins
           if config.network
             host = server.addresses[config.network].last['addr'] rescue nil
           else
-            host = server.addresses['public'].last['addr'] rescue nil
+            host = server.addresses[config.network_id].last['addr'] rescue nil
           end
+
           # Read the DNS info
           return {
             # Usually there should only be one public IP
